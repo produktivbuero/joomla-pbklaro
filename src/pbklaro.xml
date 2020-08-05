@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.8" group="system" method="upgrade">
+  <name>PLG_SYSTEM_PBKLARO</name>
+  <creationDate>08/2020</creationDate>
+  <author>Sebastian Brümmer</author>
+  <authorEmail>sebastian@produktivbuero.de</authorEmail>
+  <authorUrl>https://www.produktivbuero.de</authorUrl>
+  <copyright>Copyright (C) 2020 *produktivbüro . All rights reserved</copyright>
+  <license>GNU General Public License version 2 or later</license>
+  <version>0.9.0</version>
+  <description>PLG_SYSTEM_PBKLARO_XML_DESCRIPTION</description>
+
+  <!-- Scripts on install/update/uninstall -->
+  <scriptfile>script.php</scriptfile>
+
+  <!-- Plugin files -->
+  <files>
+    <filename plugin="pbklaro">pbklaro.php</filename>
+    <folder>forms</folder>
+    <folder>js</folder>
+    <folder>language</folder>
+  </files>
+
+  <!-- Language files -->
+  <languages folder="language">
+    <language tag="de-DE">de-DE/de-DE.plg_system_pbklaro.ini</language>
+    <language tag="de-DE">de-DE/de-DE.plg_system_pbklaro.sys.ini</language>
+    <language tag="en-GB">en-GB/en-GB.plg_system_pbklaro.ini</language>
+    <language tag="en-GB">en-GB/en-GB.plg_system_pbklaro.sys.ini</language>
+  </languages>
+
+  <!-- Media files -->
+  <media folder="media" destination="plg_system_pbklaro">
+    <folder>js</folder>
+  </media>
+
+  <!-- Config parameter -->
+  <config>
+    <fields name="params">
+      <fieldset name="basic" addfieldpath="/administrator/components/com_menus/models/fields">
+        <field
+          type="spacer"
+          name="note"
+          label="PLG_SYSTEM_PBKLARO_COOKIES_HELP" />
+
+        <field
+          name="privacyPolicy"
+          type="modal_menu"
+          disable="separator,alias,heading,url"
+          select="true"
+          clear="true"
+          required="true"
+          label="PLG_SYSTEM_PBKLARO_PRIVACY_POLICY_LABEL"
+          description="PLG_SYSTEM_PBKLARO_PRIVACY_POLICY_DESCRIPTION">
+            <option value=""></option>
+        </field>
+
+        <field
+          type="spacer"
+          name="help"
+          label="PLG_SYSTEM_PBKLARO_PRIVACY_POLICY_HELP" />
+
+        <field
+          name="default"
+          type="radio"
+          default="0"
+          label="PLG_SYSTEM_PBKLARO_DEFAULT_LABEL"
+          description="PLG_SYSTEM_PBKLARO_DEFAULT_DESCRIPTION"
+          class="btn-group">
+            <option value="1">JON</option>
+            <option value="0">JOFF</option>
+        </field>
+
+        <field
+          name="mustConsent"
+          type="radio"
+          default="0"
+          label="PLG_SYSTEM_PBKLARO_MUST_CONSENT_LABEL"
+          description="PLG_SYSTEM_PBKLARO_MUST_CONSENT_DESCRIPTION"
+          class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+          name="acceptAll"
+          type="radio"
+          default="0"
+          label="PLG_SYSTEM_PBKLARO_ACCEPT_ALL_LABEL"
+          description="PLG_SYSTEM_PBKLARO_ACCEPT_ALL_DESCRIPTION"
+          class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+          name="hideDeclineAll"
+          type="radio"
+          default="0"
+          label="PLG_SYSTEM_PBKLARO_HIDE_DECLINE_ALL_LABEL"
+          description="PLG_SYSTEM_PBKLARO_HIDE_DECLINE_ALL_DESCRIPTION"
+          class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+          name="hideLearnMore"
+          type="radio"
+          default="0"
+          label="PLG_SYSTEM_PBKLARO_HIDE_LEARN_MORE_LABEL"
+          description="PLG_SYSTEM_PBKLARO_HIDE_LEARN_MORE_DESCRIPTION"
+          class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+      </fieldset>
+          
+      <fieldset name="cookies">
+        <field
+          name="apps"
+          type="subform"
+          multiple="true"
+          formsource="plugins/system/pbklaro/forms/cookies.xml"
+          layout="joomla.form.field.subform.repeatable"          
+          buttons="add,remove,move"
+          default='{"apps0":{"enabled":"1","title":"Session Cookie","purposes":["essential"],"required":"1","default":"0","optOut":"0","onlyOnce":"1","description":"The cookie is required for authentication, preference tracking and other necessary functions.","inline":"","external":""},"apps1":{"enabled":"1","title":"Klaro","purposes":["essential"],"required":"1","default":"0","optOut":"0","onlyOnce":"1","description":"Saves the privacy settings of website visitors.","inline":"","external":""},"apps2":{"enabled":"0","title":"Google Analytics","purposes":["statistics"],"required":"0","default":"0","optOut":"0","onlyOnce":"1","description":"Generates statistical data on how the visitor uses the website (Provider: Google LLC, Cookies: _ga, _gid, _gat, storage: 14 months)","inline":"&lt;script&gt;\r\n  window.dataLayer = window.dataLayer || [];\r\n  function gtag(){dataLayer.push(arguments);}\r\n  gtag(\"js\", new Date());\r\n  gtag(\"config\", \"UA-0000000-00\", { \"anonymize_ip\": true });\r\n&lt;\/script&gt;","external":"&lt;script async src=\"https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-0000000-00\"&gt;&lt;\/script&gt;"}}'
+          label="PLG_SYSTEM_PBKLARO_APPS_LABEL"
+          description="PLG_SYSTEM_PBKLARO_APPS_DESCRIPTION" />
+      </fieldset>
+
+      <fieldset name="style">
+        <field
+          name="backgroundcolor"
+          type="color"
+          default="#333333"
+          label="PLG_SYSTEM_PBKLARO_BACKGROUND_COLOR_LABEL"
+          description="PLG_SYSTEM_PBKLARO_BACKGROUND_COLOR_DESCRIPTION" />
+
+        <field
+          name="linkcolor"
+          type="color"
+          default="#00AA3E"
+          label="PLG_SYSTEM_PBKLARO_LINK_COLOR_LABEL"
+          description="PLG_SYSTEM_PBKLARO_LINK_COLOR_DESCRIPTION" />
+
+        <field
+          name="acceptcolor"
+          type="color"
+          default="#00AA3E"
+          label="PLG_SYSTEM_PBKLARO_ACCEPT_COLOR_LABEL"
+          description="PLG_SYSTEM_PBKLARO_ACCEPT_COLOR_DESCRIPTION" />
+
+        <field
+          name="savecolor"
+          type="color"
+          default="#0885BA"
+          label="PLG_SYSTEM_PBKLARO_SAVE_COLOR_LABEL"
+          description="PLG_SYSTEM_PBKLARO_SAVE_COLOR_DESCRIPTION" />
+
+        <field
+          name="declinecolor"
+          type="color"
+          default="#555555"
+          label="PLG_SYSTEM_PBKLARO_DECLINE_COLOR_LABEL"
+          description="PLG_SYSTEM_PBKLARO_DECLINE_COLOR_DESCRIPTION" />
+
+        <field
+          name="togglecolor"
+          type="color"
+          default="#006A4E"
+          label="PLG_SYSTEM_PBKLARO_TOGGLE_COLOR_LABEL"
+          description="PLG_SYSTEM_PBKLARO_TOGGLE_COLOR_DESCRIPTION" />
+
+        <field
+          name="css"
+          type="textarea"
+          rows="5"
+          label="PLG_SYSTEM_PBKLARO_CSS_LABEL"
+          description="PLG_SYSTEM_PBKLARO_CSS_DESCRIPTION"
+          class="input-block-level" />
+      </fieldset>
+
+      <fieldset name="advanced">
+        <field 
+          name="elementID" 
+          type="text"
+          hint="klaro"
+          label="PLG_SYSTEM_PBKLARO_ID_LABEL" 
+          description="PLG_SYSTEM_PBKLARO_ID_DESCRIPTION" />
+
+        <field 
+          name="storageMethod" 
+          type="radio" 
+          default="cookie" 
+          label="PLG_SYSTEM_PBKLARO_STORAGE_LABEL" 
+          description="PLG_SYSTEM_PBKLARO_STORAGE_DESCRIPTION" 
+          class="btn-group">
+            <option value="cookie">PLG_SYSTEM_PBKLARO_STORAGE_VALUE_COOKIE</option>
+            <option value="localStorage">PLG_SYSTEM_PBKLARO_STORAGE_VALUE_LOCALSTORAGE</option>
+        </field>
+
+        <field 
+          name="cookieName" 
+          type="text"
+          hint="klaro"
+          label="PLG_SYSTEM_PBKLARO_COOKIENAME_LABEL" 
+          description="PLG_SYSTEM_PBKLARO_COOKIENAME_DESCRIPTION" />
+
+        <field 
+          name="cookieExpiresAfterDays" 
+          type="text"
+          inputtype="number"
+          pattern="[0-9]+"
+          hint="120"
+          label="PLG_SYSTEM_PBKLARO_EXPIRATION_LABEL" 
+          description="PLG_SYSTEM_PBKLARO_EXPIRATION_DESCRIPTION" />
+
+        <field 
+          name="cookieDomain" 
+          type="text"
+          label="PLG_SYSTEM_PBKLARO_DOMAIN_LABEL" 
+          description="PLG_SYSTEM_PBKLARO_DOMAIN_DESCRIPTION" />
+      </fieldset>
+    </fields>
+  </config>
+</extension>
