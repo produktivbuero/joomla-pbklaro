@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+  <update>
+    <name>System - Klaro! Consent Manager</name>
+    <element>pbklaro</element>
+    <type>plugin</type>
+    <folder>system</folder>
+    <client>site</client>
+    <version>0.9.0</version>
+    <infourl title="Release Notes">https://github.com/produktivbuero/joomla-pbklaro/releases/tag/v0.9.0</infourl>
+    <downloads>
+      <downloadurl type="full" format="zip">https://github.com/produktivbuero/joomla-pbklaro/releases/download/v0.9.0/plg-pbklaro-0.9.0.zip</downloadurl>
+    </downloads>
+    <tags>
+      <tag>rc</tag>
+    </tags>
+    <maintainer>Sebastian Brümmer</maintainer>
+    <maintainerurl>https://www.produktivbuero.de</maintainerurl>
+    <targetplatform name="joomla" version="3.*"/>
+  </update>
+</updates>

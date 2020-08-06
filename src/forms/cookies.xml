@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+  <field
+    name="enabled" 
+    type="radio" 
+    default="1"
+    label="PLG_SYSTEM_PBKLARO_ENABLED_LABEL"
+    description="PLG_SYSTEM_PBKLARO_ENABLED_DESCRIPTION"
+    class="btn-group">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+  </field>
+
+  <field
+    name="title" 
+    type="text" 
+    required="true"
+    label="PLG_SYSTEM_PBKLARO_TITLE_LABEL"
+    description="PLG_SYSTEM_PBKLARO_TITLE_DESCRIPTION" />
+
+  <field
+    name="purposes" 
+    type="list" 
+    multiple="true"
+    required="true"
+    showon="enabled:1"
+    label="PLG_SYSTEM_PBKLARO_PURPOSE_LABEL"
+    description="PLG_SYSTEM_PBKLARO_PURPOSE_DESCRIPTION">
+      <option value="essential">PLG_SYSTEM_PBKLARO_PURPOSE_ESSENTIAL</option>
+      <option value="media">PLG_SYSTEM_PBKLARO_PURPOSE_EXTERNAL_MEDIA</option>
+      <option value="marketing">PLG_SYSTEM_PBKLARO_PURPOSE_MARKETING</option>
+      <option value="statistics">PLG_SYSTEM_PBKLARO_PURPOSE_STATISTICS</option>
+      <option value="security">PLG_SYSTEM_PBKLARO_PURPOSE_SECURITY</option>
+  </field>
+
+  <field
+    name="required" 
+    type="radio" 
+    default="0"
+    showon="enabled:1"
+    label="PLG_SYSTEM_PBKLARO_REQUIRED_LABEL"
+    description="PLG_SYSTEM_PBKLARO_REQUIRED_DESCRIPTION"
+    class="btn-group">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+  </field>
+
+  <field
+    name="default" 
+    type="radio" 
+    default="0"
+    showon="enabled:1"
+    label="PLG_SYSTEM_PBKLARO_DEFAULT_LABEL"
+    description="PLG_SYSTEM_PBKLARO_DEFAULT_DESCRIPTION"
+    class="btn-group">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+  </field>
+
+  <field
+    name="optOut"
+    type="radio" 
+    default="0"
+    showon="enabled:1"
+    label="PLG_SYSTEM_PBKLARO_OPTOUT_LABEL"
+    description="PLG_SYSTEM_PBKLARO_OPTOUT_DESCRIPTION"
+    class="btn-group">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+  </field>
+
+  <field
+    name="onlyOnce" 
+    type="radio" 
+    default="1"
+    showon="enabled:1"
+    label="PLG_SYSTEM_PBKLARO_ONLYONCE_LABEL"
+    description="PLG_SYSTEM_PBKLARO_ONLYONCE_DESCRIPTION"
+    class="btn-group">
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+  </field>
+
+  <field
+    name="description"
+    type="textarea"
+    rows="2"
+    showon="enabled:1"
+    filter="safehtml"
+    label="PLG_SYSTEM_PBKLARO_DESCRIPTION_LABEL"
+    description="PLG_SYSTEM_PBKLARO_DESCRIPTION_DESCRIPTION"
+    class="input-block-level" />
+
+  <field
+    name="inline"
+    type="textarea"
+    rows="5"
+    filter="raw" 
+    showon="enabled:1"
+    hint="&lt;script&gt;\n  /* your code here */\n&lt;/script&gt;"
+    label="PLG_SYSTEM_PBKLARO_INLINE_LABEL"
+    description="PLG_SYSTEM_PBKLARO_INLINE_DESCRIPTION"
+    class="input-block-level"/>
+
+  <field
+    name="external"
+    type="textarea"
+    rows="2"
+    filter="raw"
+    showon="enabled:1"
+    hint="&lt;script src=&quot;//example.com/script.js&quot;&gt;&lt;/script&gt;\n&lt;img src=&quot;example.com/tracking.gif&quot;&gt;"
+    label="PLG_SYSTEM_PBKLARO_EXTERNAL_LABEL"
+    description="PLG_SYSTEM_PBKLARO_EXTERNAL_DESCRIPTION"
+    class="input-block-level" />
+</form>
