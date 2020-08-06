@@ -27,7 +27,7 @@
     label="PLG_SYSTEM_PBKLARO_PURPOSE_LABEL"
     description="PLG_SYSTEM_PBKLARO_PURPOSE_DESCRIPTION">
       <option value="essential">PLG_SYSTEM_PBKLARO_PURPOSE_ESSENTIAL</option>
-      <option value="media">PLG_SYSTEM_PBKLARO_PURPOSE_EXTERNAL_MEDIA</option>
+      <option value="media">PLG_SYSTEM_PBKLARO_PURPOSE_MEDIA</option>
       <option value="marketing">PLG_SYSTEM_PBKLARO_PURPOSE_MARKETING</option>
       <option value="statistics">PLG_SYSTEM_PBKLARO_PURPOSE_STATISTICS</option>
       <option value="security">PLG_SYSTEM_PBKLARO_PURPOSE_SECURITY</option>
