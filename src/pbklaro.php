@@ -74,7 +74,7 @@ class plgSystemPbKlaro extends CMSPlugin
     $this->settings['cookieExpiresAfterDays'] = (int) $params->get('cookieExpiresAfterDays', 120);
     $this->settings['cookieDomain'] = (string) $params->get('cookieDomain', '');
 
-    $this->settings['apps'] = $params->get('apps'); /* cookie apps */
+    $this->settings['klaro-apps'] = $params->get('klaro-apps'); /* cookie apps */
   }
 
   /**
@@ -97,7 +97,7 @@ class plgSystemPbKlaro extends CMSPlugin
 
 
     /* PREPARE APPS */
-    if ( empty($this->settings['apps']) ) {
+    if ( empty($this->settings['klaro-apps']) ) {
       $doc->addScriptDeclaration( 'var klaro = klaro || { show: function(){ return; } }' ); /* add dummy to avoid errors for manager onclick-event */
       return true;
     }
@@ -106,7 +106,7 @@ class plgSystemPbKlaro extends CMSPlugin
     $purposes = []; /* translated cookie purposes */
     $descriptions = []; /* translated apps descriptions */
 
-    foreach ($this->settings['apps'] as $name => $app) {
+    foreach ($this->settings['klaro-apps'] as $name => $app) {
       if ( $app->enabled == '0' ) continue;
 
       $apps[] = array(
@@ -142,7 +142,7 @@ class plgSystemPbKlaro extends CMSPlugin
     }
 
     $apps = json_encode($apps);
-    unset($this->settings['apps']); /* do not use in window.klaroConfig */
+    unset($this->settings['klaro-apps']); /* do not use in window.klaroConfig */
 
 
     /* CUSTOM STYLES */
