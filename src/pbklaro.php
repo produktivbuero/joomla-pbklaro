@@ -54,11 +54,11 @@ class plgSystemPbKlaro extends CMSPlugin
     $params = new JRegistry($config['params']);
 
     $this->settings['privacyPolicy'] = $params->get('privacyPolicy'); /* itemID */
-    $this->settings['default'] = $params->get('default', 0);
-    $this->settings['mustConsent'] = $params->get('mustConsent', 0);
-    $this->settings['acceptAll'] = $params->get('acceptAll', 0);
-    $this->settings['hideDeclineAll'] = $params->get('hideDeclineAll', 0);
-    $this->settings['hideLearnMore'] = $params->get('hideLearnMore', 0);
+    $this->settings['default'] = (int) $params->get('default', 0);
+    $this->settings['mustConsent'] = (int) $params->get('mustConsent', 0);
+    $this->settings['acceptAll'] = (int) $params->get('acceptAll', 0);
+    $this->settings['hideDeclineAll'] = (int) $params->get('hideDeclineAll', 0);
+    $this->settings['hideLearnMore'] = (int) $params->get('hideLearnMore', 0);
 
     $this->settings['styles']['backgroundcolor'] = $params->get('backgroundcolor');
     $this->settings['styles']['linkcolor'] = $params->get('linkcolor');
