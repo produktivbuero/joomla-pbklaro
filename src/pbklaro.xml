@@ -227,6 +227,6 @@
 
   <!-- Updates -->
   <updateservers>
-    <server type="extension" priority="1" name="PLG_SYSTEM_PBCOOKIENOTE">https://raw.githubusercontent.com/produktivbuero/joomla-pbklaro/master/updates.xml</server>
+    <server type="extension" priority="1" name="PLG_SYSTEM_PBKLARO">https://raw.githubusercontent.com/produktivbuero/joomla-pbklaro/master/updates.xml</server>
   </updateservers>
 </extension>
