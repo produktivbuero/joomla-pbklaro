@@ -123,19 +123,19 @@ class plgSystemPbKlaro extends CMSPlugin
       }
 
       if ( !empty($app->description) ) {
-        $descriptions[$name] = array( 'description' => $app->description );
+        $descriptions[$app->name] = array( 'description' => $app->description );
       }
 
       // add inline app script
       if ( !empty($app->inline) ) {
-        $inline = preg_replace('/<script[^>]*>([^<]+)<\/script>.*/is', '<script type="text/plain" data-type="application/javascript" data-name="' . $name . '">$1</script>', $app->inline);
+        $inline = preg_replace('/<script[^>]*>([^<]+)<\/script>.*/is', '<script type="text/plain" data-type="application/javascript" data-name="' . $app->name . '">$1</script>', $app->inline);
         
         if ( $inline != $app->inline ) $doc->addCustomTag( $inline ); // add code if there have been replacements
       }
 
       // add external app ressource
       if ( !empty($app->external) ) {
-        $external = preg_replace('/<([\w]+).*src="([^"]+)"[^>]*>(<\/[\w]+>)*/im', '<$1 type="text/plain" data-src="$2" data-name="' . $name . '">$3', $app->external);
+        $external = preg_replace('/<([\w]+).*src="([^"]+)"[^>]*>(<\/[\w]+>)*/im', '<$1 type="text/plain" data-src="$2" data-name="' . $app->name . '">$3', $app->external);
 
         if ( $external != $app->external ) $doc->addCustomTag( $external ); // add app if there have been repacements
       }
