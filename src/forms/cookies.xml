@@ -58,7 +58,7 @@
     name="default" 
     type="radio" 
     default="0"
-    showon="enabled:1"
+    showon="enabled:1[AND]required:0"
     label="PLG_SYSTEM_PBKLARO_DEFAULT_LABEL"
     description="PLG_SYSTEM_PBKLARO_DEFAULT_DESCRIPTION"
     class="btn-group">
@@ -70,7 +70,7 @@
     name="optOut"
     type="radio" 
     default="0"
-    showon="enabled:1"
+    showon="enabled:1[AND]required:0"
     label="PLG_SYSTEM_PBKLARO_OPTOUT_LABEL"
     description="PLG_SYSTEM_PBKLARO_OPTOUT_DESCRIPTION"
     class="btn-group">
@@ -82,7 +82,7 @@
     name="onlyOnce" 
     type="radio" 
     default="1"
-    showon="enabled:1"
+    showon="enabled:1[AND]required:0"
     label="PLG_SYSTEM_PBKLARO_ONLYONCE_LABEL"
     description="PLG_SYSTEM_PBKLARO_ONLYONCE_DESCRIPTION"
     class="btn-group">
