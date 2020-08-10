@@ -19,6 +19,15 @@
     description="PLG_SYSTEM_PBKLARO_TITLE_DESCRIPTION" />
 
   <field
+    name="name" 
+    type="text" 
+    required="true"
+    showon="enabled:1"
+    pattern="[a-z0-9-_]+"
+    label="PLG_SYSTEM_PBKLARO_NAME_LABEL"
+    description="PLG_SYSTEM_PBKLARO_NAME_DESCRIPTION" />
+
+  <field
     name="purposes" 
     type="list" 
     multiple="true"

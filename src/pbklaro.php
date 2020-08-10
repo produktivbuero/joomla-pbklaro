@@ -106,11 +106,11 @@ class plgSystemPbKlaro extends CMSPlugin
     $purposes = []; /* translated cookie purposes */
     $descriptions = []; /* translated apps descriptions */
 
-    foreach ($this->settings['klaro-apps'] as $name => $app) {
+    foreach ($this->settings['klaro-apps'] as $key => $app) {
       if ( $app->enabled == '0' ) continue;
 
       $apps[] = array(
-                  'name' => $name,
+                  'name' => $app->name,
                   'title' => $app->title,
                   'purposes' => $app->purposes,
                   'required' => $app->required == '1' ? true : false,
