@@ -7,7 +7,7 @@
   <authorUrl>https://www.produktivbuero.de</authorUrl>
   <copyright>Copyright (C) 2020 *produktivbüro . All rights reserved</copyright>
   <license>GNU General Public License version 2 or later</license>
-  <version>0.9.1</version>
+  <version>0.9.2</version>
   <description>PLG_SYSTEM_PBKLARO_XML_DESCRIPTION</description>
 
   <!-- Scripts on install/update/uninstall -->
