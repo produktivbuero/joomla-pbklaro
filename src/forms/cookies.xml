@@ -117,7 +117,7 @@
     rows="2"
     filter="raw"
     showon="enabled:1"
-    hint="&lt;script src=&quot;//example.com/script.js&quot;&gt;&lt;/script&gt;\n&lt;img src=&quot;example.com/tracking.gif&quot;&gt;"
+    hint="&lt;script src=&apos;&apos;//example.com/script.js&apos;&apos;&gt;&lt;/script&gt;\n&lt;img src=&apos;&apos;example.com/tracking.gif&apos;&apos;&gt;"
     label="PLG_SYSTEM_PBKLARO_EXTERNAL_LABEL"
     description="PLG_SYSTEM_PBKLARO_EXTERNAL_DESCRIPTION"
     class="input-block-level" />
