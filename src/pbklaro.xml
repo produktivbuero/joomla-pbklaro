@@ -131,9 +131,21 @@
 
       <fieldset name="style">
         <field
+          name="ownCSS"
+          type="radio"
+          default="0"
+          label="PLG_SYSTEM_PBKLARO_OWN_CSS_LABEL"
+          description="PLG_SYSTEM_PBKLARO_OWN_CSS_DESCRIPTION"
+          class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
           name="backgroundcolor"
           type="color"
           default="#333333"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_BACKGROUND_COLOR_LABEL"
           description="PLG_SYSTEM_PBKLARO_BACKGROUND_COLOR_DESCRIPTION" />
 
@@ -141,6 +153,7 @@
           name="linkcolor"
           type="color"
           default="#00AA3E"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_LINK_COLOR_LABEL"
           description="PLG_SYSTEM_PBKLARO_LINK_COLOR_DESCRIPTION" />
 
@@ -148,6 +161,7 @@
           name="acceptcolor"
           type="color"
           default="#00AA3E"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_ACCEPT_COLOR_LABEL"
           description="PLG_SYSTEM_PBKLARO_ACCEPT_COLOR_DESCRIPTION" />
 
@@ -155,6 +169,7 @@
           name="savecolor"
           type="color"
           default="#0885BA"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_SAVE_COLOR_LABEL"
           description="PLG_SYSTEM_PBKLARO_SAVE_COLOR_DESCRIPTION" />
 
@@ -162,6 +177,7 @@
           name="declinecolor"
           type="color"
           default="#555555"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_DECLINE_COLOR_LABEL"
           description="PLG_SYSTEM_PBKLARO_DECLINE_COLOR_DESCRIPTION" />
 
@@ -169,6 +185,7 @@
           name="togglecolor"
           type="color"
           default="#006A4E"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_TOGGLE_COLOR_LABEL"
           description="PLG_SYSTEM_PBKLARO_TOGGLE_COLOR_DESCRIPTION" />
 
@@ -176,6 +193,7 @@
           name="css"
           type="textarea"
           rows="5"
+          showon="ownCSS:0"
           label="PLG_SYSTEM_PBKLARO_CSS_LABEL"
           description="PLG_SYSTEM_PBKLARO_CSS_DESCRIPTION"
           class="input-block-level" />

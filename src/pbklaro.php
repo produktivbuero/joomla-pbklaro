@@ -73,6 +73,7 @@ class plgSystemPbKlaro extends CMSPlugin
     $this->settings['cookieName'] = (string) $params->get('cookieName', 'klaro');
     $this->settings['cookieExpiresAfterDays'] = (int) $params->get('cookieExpiresAfterDays', 120);
     $this->settings['cookieDomain'] = (string) $params->get('cookieDomain', '');
+    $this->settings['ownCSS'] = (int) $params->get('ownCSS', 0);
 
     $this->settings['klaro-apps'] = $params->get('klaro-apps'); /* cookie apps */
   }
@@ -146,15 +147,18 @@ class plgSystemPbKlaro extends CMSPlugin
 
 
     /* CUSTOM STYLES */
+    $ownCSS = $this->settings['ownCSS'];
+    unset($this->settings['ownCSS']); /* do not use in window.klaroConfig */
+
     $style = '';
 
-    if ( !empty($this->settings['styles']['backgroundcolor']) ) $style .= '.klaro .cookie-modal .cm-modal, .klaro .cookie-notice {background-color:' . $this->settings['styles']['backgroundcolor'] . ' !important;}';
-    if ( !empty($this->settings['styles']['linkcolor']) ) $style .= '.klaro .cookie-modal a, .klaro .cookie-notice a {color:' . $this->settings['styles']['linkcolor'] . ' !important;}';
-    if ( !empty($this->settings['styles']['acceptcolor']) ) $style .= '.klaro .cookie-modal .cm-btn.cm-btn-success, .klaro .cookie-notice .cm-btn.cm-btn-success {background-color:' . $this->settings['styles']['acceptcolor'] . ' !important;}';
-    if ( !empty($this->settings['styles']['savecolor']) ) $style .= '.klaro .cookie-modal .cm-btn.cm-btn-info, .klaro .cookie-notice .cm-btn.cm-btn-info {background-color:' . $this->settings['styles']['savecolor'] . ' !important;}';
-    if ( !empty($this->settings['styles']['declinecolor']) ) $style .= '.klaro .cookie-modal .cm-btn.cm-btn-right, .klaro .cookie-notice .cm-btn.cm-btn-right {background-color:' . $this->settings['styles']['declinecolor'] . ' !important;}';
-    if ( !empty($this->settings['styles']['togglecolor']) ) $style .= '.klaro .cookie-modal .cm-app-input:checked + .cm-app-label .slider, .klaro .cookie-notice .cm-app-input:checked + .cm-app-label .slider, .klaro .cookie-modal .cm-app-input.required:checked + .cm-app-label .slider, .klaro .cookie-notice .cm-app-input.required:checked + .cm-app-label .slider {background-color:' . $this->settings['styles']['togglecolor'] . ' !important;}';
-    if ( !empty($this->settings['styles']['css']) ) $style .= $this->settings['styles']['css'];
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['backgroundcolor']) ) $style .= '.klaro .cookie-modal .cm-modal, .klaro .cookie-notice {background-color:' . $this->settings['styles']['backgroundcolor'] . ' !important;}';
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['linkcolor']) ) $style .= '.klaro .cookie-modal a, .klaro .cookie-notice a {color:' . $this->settings['styles']['linkcolor'] . ' !important;}';
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['acceptcolor']) ) $style .= '.klaro .cookie-modal .cm-btn.cm-btn-success, .klaro .cookie-notice .cm-btn.cm-btn-success {background-color:' . $this->settings['styles']['acceptcolor'] . ' !important;}';
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['savecolor']) ) $style .= '.klaro .cookie-modal .cm-btn.cm-btn-info, .klaro .cookie-notice .cm-btn.cm-btn-info {background-color:' . $this->settings['styles']['savecolor'] . ' !important;}';
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['declinecolor']) ) $style .= '.klaro .cookie-modal .cm-btn.cm-btn-right, .klaro .cookie-notice .cm-btn.cm-btn-right {background-color:' . $this->settings['styles']['declinecolor'] . ' !important;}';
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['togglecolor']) ) $style .= '.klaro .cookie-modal .cm-app-input:checked + .cm-app-label .slider, .klaro .cookie-notice .cm-app-input:checked + .cm-app-label .slider, .klaro .cookie-modal .cm-app-input.required:checked + .cm-app-label .slider, .klaro .cookie-notice .cm-app-input.required:checked + .cm-app-label .slider {background-color:' . $this->settings['styles']['togglecolor'] . ' !important;}';
+    if ( $ownCSS == 0 && !empty($this->settings['styles']['css']) ) $style .= $this->settings['styles']['css'];
 
     $doc->addStyleDeclaration( $style );
     unset($this->settings['styles']); /* do not use in window.klaroConfig */
@@ -209,7 +213,13 @@ class plgSystemPbKlaro extends CMSPlugin
     $doc->addScriptDeclaration( $script );
 
     /* SCRIPT */
-    $doc->addScript( JURI::base(true).'/media/plg_system_pbklaro/js/klaro.js', array('version' => self::KLARO), array('defer' => true) );
+    $js = JURI::base(true).'/media/plg_system_pbklaro/js/klaro.js';
+    
+    if ( $ownCSS == 1 ) {
+      $js = JURI::base(true).'/media/plg_system_pbklaro/js/klaro-no-css.js';
+    }
+
+    $doc->addScript( $js, array('version' => self::KLARO), array('defer' => true) );
   }
 
   /**
