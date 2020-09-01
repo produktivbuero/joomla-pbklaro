@@ -40,6 +40,7 @@
       <option value="marketing">PLG_SYSTEM_PBKLARO_PURPOSE_MARKETING</option>
       <option value="statistics">PLG_SYSTEM_PBKLARO_PURPOSE_STATISTICS</option>
       <option value="security">PLG_SYSTEM_PBKLARO_PURPOSE_SECURITY</option>
+      <option value="other">PLG_SYSTEM_PBKLARO_PURPOSE_OTHER</option>
   </field>
 
   <field
