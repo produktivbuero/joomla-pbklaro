@@ -48,7 +48,7 @@ class plgSystemPbKlaro extends CMSPlugin
 
     parent::__construct($subject, $config);
 
-    $this->settings = array();
+    $this->settings = array(); /* window.klaroConfig */
 
     // plugin parameters
     $params = new JRegistry($config['params']);
@@ -245,6 +245,7 @@ class plgSystemPbKlaro extends CMSPlugin
     $lang = JFactory::getLanguage();
     $lang->load('plg_'.$this->_type.'_'.$this->_name, JPATH_ADMINISTRATOR);
 
+    /* replace manager link shortcode */
     $insert = '<a href="#" onclick="klaro.show(); return false;">'.JText::_('PLG_SYSTEM_PBKLARO_SHOW_MANAGER_LINK').'</a>';
     $regex = '/{plg_system_pbklaro_manager}/im';
     
